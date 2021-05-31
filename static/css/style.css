@@ -6,11 +6,35 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.logo {
+    font-family: 'Pattaya', sans-serif;
+    font-size: 30px;
+    color: #000;
+}
+
+.logo:hover {
+    text-decoration: none;
+    color: rgb(255, 127, 80);
+}
+
+.nav-hover {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.nav-hover:hover {
+   
+    color: rgb(255, 127, 80);
+    text-decoration: none;
+}
+
 #bg-image {
-    
     background: url("../images/hero-img.jpg") center center no-repeat;
     width: auto;
-    height: 80vh;
+    height: 75vh;
 }
 
 #cta-text {
