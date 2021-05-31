@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Roboto&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+#bg-image {
+    
+    background: url("../images/hero-img.jpg") center center no-repeat;
+    width: auto;
+    height: 80vh;
+}
+
+#cta-text {
+    font-family: 'Pattaya', sans-serif;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 60px;
+}
+
+.cta-btn {
+    display: flex;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    background: rgb(255, 127, 80);
+}
+
+.cta-btn:hover {
+    color: #f5eded;
+    background: rgb(240, 10, 56);
+}
