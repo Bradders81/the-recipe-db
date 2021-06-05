@@ -66,27 +66,33 @@ body {
     background: url("../images/hero-img.jpg") center center no-repeat;
     width: auto;
     height: 75vh;
+    background-size: cover;
+    text-align: center;
 }
 
 #cta-text {
     font-family: 'Pattaya', sans-serif;
     margin-top: 10%;
     font-size: 60px;
-    text-align: center;
 }
 
 .cta-btn {
-    display: flex;
-    margin: 0 auto;
-    padding: 15px;
-    border-radius: 6px;
+    display: inline-block;
+    padding: 15px 25px 15px 25px;
+    border-radius: 25px;
     font-weight: 600;
+    color: #000;
     background: rgb(255, 127, 80);
+    margin: auto 0;
+    text-decoration: none;
+    box-shadow: 2px 2px 2px;
 }
 
 .cta-btn:hover {
     color: #f5eded;
     background:#000;
+    text-decoration: none;
+  
 }
 
 .about-section {
@@ -118,9 +124,7 @@ body {
     border-radius: 10px;
 }
 
-#sign-up-btn {
-    text-decoration: none;
-}
+
 
 /*---------- Footer ----------*/
 footer {
