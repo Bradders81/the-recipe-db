@@ -8,6 +8,22 @@
     text-align: center;
 }
 
+/*----- Credit: for sticky footer: https://css-tricks.com/couple-takes-sticky-footer/ -----*/
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
+/*-----/End of Credit -----*/
+
 .logo {
     font-family: 'Pattaya', sans-serif;
     font-size: 30px;
@@ -69,14 +85,21 @@
     font-size: 50px;
 }
 
+/*---------- Login/Sign Up ----------*/
+
+#login-sign-up {
+    background: rgba(78, 75, 75, 0.068);
+    padding: 40px;
+    border-radius: 10px;
+}
+
 /*---------- Footer ----------*/
 footer {
-    background-color:rgb(255, 127, 80) ;
+    background-color: rgb(255, 127, 80);
 }
 
 footer p {
-   margin-top:25px
-    
+    margin-top: 25px
 }
 
 #github-icon {
@@ -87,4 +110,3 @@ footer p {
 #github-icon:hover {
     color: #fff;
 }
-
