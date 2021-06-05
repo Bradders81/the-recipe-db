@@ -5,23 +5,36 @@
     margin: 0;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+}
+
+.headings {
     text-align: center;
+    font-family: 'Pattaya', sans-serif;
+}
+
+.align-center {
+    text-align: center;
+    align-items: center;
 }
 
 /*----- Credit: for sticky footer: https://css-tricks.com/couple-takes-sticky-footer/ -----*/
 html, body {
   height: 100%;
 }
+
 body {
   display: flex;
   flex-direction: column;
 }
+
 .content {
   flex: 1 0 auto;
 }
+
 .footer {
   flex-shrink: 0;
 }
+
 /*-----/End of Credit -----*/
 
 .logo {
@@ -59,6 +72,7 @@ body {
     font-family: 'Pattaya', sans-serif;
     margin-top: 10%;
     font-size: 60px;
+    text-align: center;
 }
 
 .cta-btn {
@@ -72,25 +86,40 @@ body {
 
 .cta-btn:hover {
     color: #f5eded;
-    background: rgb(240, 10, 56);
+    background:#000;
 }
 
 .about-section {
     padding: 20px 0 20px 0;
 }
+
 .about-section h2 {
     font-family: 'Pattaya', sans-serif;
     margin-top: 20px;
     font-weight: 500;
     font-size: 50px;
+    text-align: center;
 }
 
 /*---------- Login/Sign Up ----------*/
+
+#login-header {
+    margin-top: 40px;
+}
+
+#login-sign-up-cta {
+    margin-top: 15px;
+    display: inline-flexbox;
+}
 
 #login-sign-up {
     background: rgba(78, 75, 75, 0.068);
     padding: 40px;
     border-radius: 10px;
+}
+
+#sign-up-btn {
+    text-decoration: none;
 }
 
 /*---------- Footer ----------*/

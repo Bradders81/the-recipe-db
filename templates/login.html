@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Login</h1>
+<h1 id="login-header" class="headings">Login</h1>
 
 
 <div class="container">
@@ -10,30 +10,34 @@
         <div class="col-sm-12 offset-md-3 col-md-6">
             <!-- Credit: Form Bootstrap -->
             <div id="login-sign-up">
-            <form >
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                <!-- </div>
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                            placeholder="email" aria-describedby="emailHelp">
+                        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="password"
+                            id="exampleInputPassword1">
+                        <!-- </div>
                     <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label> -->
-                </div>
-            </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>
-    <div>
-        <h5>Not got an account?</h5>
-        <button>Sign Up</button>
+                    </div>
+                    <button type="submit" class="cta-btn">Log in</button>
+                    <div id="login-sign-up-cta" class="align-center">
+                        <h5>Not got an account?</h5>
+                        <a href="" id="sign-up-btn">Sign Up</a>
+                    </div>
 
-        <!-- /End Credit -->
+                </form>
+            </div>
+        </div>
+
+
+
     </div>
 </div>
 
