@@ -12,10 +12,16 @@
             <div id="login-sign-up">
                 <form>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                            placeholder="email" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text"><small>We will never share your email with anyone else.</small></div>
+                        <label for="username" class="form-label">Username</label>
+                        <input type="username" name="username" class="form-control" id="username" placeholder="username"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="email"
+                            aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text"><small>We will never share your email with anyone
+                                else.</small></div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -28,12 +34,12 @@
                             id="exampleInputPassword1">
                     </div>
                     <div class="align-center">
-                    <button type="submit" class="cta-btn"> Create Account</button>
-                    <div id="login-sign-up-cta">
-                        <h5>Already got an Account?</h5>
-                        <a href="{{ url_for('login') }}" id="sign-up-btn">Click here to login</a>
+                        <button type="submit" class="cta-btn"> Create Account</button>
+                        <div id="login-sign-up-cta">
+                            <h5>Already got an Account?</h5>
+                            <a href="{{ url_for('login') }}" id="sign-up-btn">Click here to login</a>
+                        </div>
                     </div>
-                </div>
 
                 </form>
             </div>
