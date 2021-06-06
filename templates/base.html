@@ -34,7 +34,7 @@
                             <a class="nav-hover" href="{{ url_for('recipes') }}">Recipes </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-hover" href="#">Profile </a>
+                            <a class="nav-hover" href="{{ url_for('profile') }}">Profile </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-hover" href="{{ url_for('login') }}">Login</a>
@@ -44,9 +44,22 @@
             </nav>
         </header>
 
+        <section>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div id="flash-msg" class="row align-center">
+                        <h4 class="col-12">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
 
+    <main class="container-fluid">
         {% block content %}
         {% endblock %}
+    </main>
     </div>
         <footer class="container-fluid footer">
             <div class="row align-center">

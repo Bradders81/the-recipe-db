@@ -36,9 +36,32 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/signup")
+@app.route("/signup", methods=["GET", "POST"])
 def signup():
+    if request.method == "POST":
+        email_registered = mongo.db.users.find_one(
+            {"email": request.form.get("email").lower()})
+
+        if email_registered:
+            flash("Email address already registered.")
+            return redirect(url_for("signup"))
+
+        create_account = {
+            "username": request.form.get("username").lower(),
+            "email": request.form.get("email").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+        }
+        mongo.db.users.insert_one(create_account)
+
+        session["new_user"] = request.form.get("username").lower()
+        flash("Your Profile has been created.")
+
     return render_template("signup.html")
+
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
 
 
 if __name__ == "__main__":

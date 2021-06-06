@@ -23,6 +23,9 @@
    "workbench.colorTheme": "Visual Studio Dark",
    "editor.defaultFormatter": "HookyQR.beautify",
    "[html]": {
-      "editor.defaultFormatter": "HookyQR.beautify"
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+   },
+   "[python]": {
+      "editor.defaultFormatter": "ms-python.python"
    },
 }

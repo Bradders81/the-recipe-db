@@ -14,7 +14,15 @@
 
 .align-center {
     text-align: center;
-    align-items: center;
+    
+}
+
+/*----- Flash messages -----*/
+
+#flash-msg {
+    margin-top: 15px;
+    font-weight: 600;
+    
 }
 
 /*----- Credit: for sticky footer: https://css-tricks.com/couple-takes-sticky-footer/ -----*/
@@ -72,8 +80,8 @@ body {
 
 #cta-text {
     font-family: 'Pattaya', sans-serif;
-    margin-top: 10%;
     font-size: 60px;
+    margin-top: 10%;
 }
 
 .cta-btn {
@@ -124,8 +132,6 @@ body {
     border-radius: 10px;
 }
 
-
-
 /*---------- Footer ----------*/
 footer {
     background-color: rgb(255, 127, 80);
@@ -143,3 +149,15 @@ footer p {
 #github-icon:hover {
     color: #fff;
 }
+
+/*----- @media queries -----*/
+@media screen and (max-width: 575px) {
+
+#cta-text {
+    font-family: 'Pattaya', sans-serif;
+    margin-top: 50%;
+    font-size: 50px;
+}
+
+}
+
