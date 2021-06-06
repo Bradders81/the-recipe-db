@@ -10,16 +10,16 @@
         <div class="col-sm-12 offset-md-3 col-md-6">
             <!-- Credit: Form Bootstrap -->
             <div id="login-sign-up">
-                <form>
+                <form method="POST" action="{{ url_for('login') }}">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                            placeholder="email" aria-describedby="emailHelp">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" name="email" class="form-control" id="email"
+                            placeholder="username">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <label for="password" class="form-label">Password</label>
                         <input type="password" name="password" class="form-control" placeholder="password"
-                            id="exampleInputPassword1">
+                            id="password">
                     </div>
                     <div class="align-center">
                         <button type="submit" class="cta-btn"><i class="fas fa-sign-in-alt"></i>  Log in</button>

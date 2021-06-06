@@ -31,11 +31,6 @@ def recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
-@app.route("/login")
-def login():
-    return render_template("login.html")
-
-
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
@@ -55,11 +50,34 @@ def signup():
 
         session["new_user"] = request.form.get("username").lower()
         flash("Your Profile has been created.")
+        return redirect(url_for("login"))
 
     return render_template("signup.html")
 
 
-@app.route("/profile")
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"email": request.form.get("email").lower()})
+
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("email").lower()
+                    flash("You are now Logged in")
+            else:
+                flash("Incorrect login details, please try again.")
+                return redirect(url_for("login"))
+
+        else:
+            flash("Incorrect login details, please try again.")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+
+
+@ app.route("/profile")
 def profile():
     return render_template("profile.html")
 
