@@ -102,8 +102,24 @@ body {
   
 }
 
+article {
+    margin-bottom: 30px;
+}
+
 .about-section {
     padding: 20px 0 20px 0;
+}
+
+#text-link {
+    color:rgb(255, 127, 80);
+    font-weight: 600;
+   
+}
+
+#text-link:hover {
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .about-section h2 {
