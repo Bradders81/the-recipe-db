@@ -36,9 +36,22 @@ def signup():
     if request.method == "POST":
         email_registered = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
+        user_registered = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if user_registered:
+            flash("User name not available.")
+            return redirect(url_for("signup"))
 
         if email_registered:
             flash("Email address already registered.")
+            return redirect(url_for("signup"))
+
+        password = request.form.get("password")
+        confirm_password = request.form.get("confirm_password")
+
+        if password != confirm_password:
+            flash("Passwords do not match")
             return redirect(url_for("signup"))
 
         create_account = {
@@ -59,26 +72,27 @@ def signup():
 def login():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
-            {"email": request.form.get("email").lower()})
+            {"username": request.form.get("username").lower()})
 
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("email").lower()
-                    flash("You are now Logged in")
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("You are now Logged in")
+                return redirect(url_for("profile", username=session["user"]))
             else:
                 flash("Incorrect login details, please try again.")
                 return redirect(url_for("login"))
 
         else:
             flash("Incorrect login details, please try again.")
-            return redirect(url_for("login"))
 
     return render_template("login.html")
 
 
 @ app.route("/profile")
 def profile():
+
     return render_template("profile.html")
 
 

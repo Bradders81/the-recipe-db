@@ -20,9 +20,8 @@
 /*----- Flash messages -----*/
 
 #flash-msg {
-    margin-top: 15px;
+    margin-top: 10px;
     font-weight: 600;
-    
 }
 
 /*----- Credit: for sticky footer: https://css-tricks.com/couple-takes-sticky-footer/ -----*/
@@ -130,6 +129,7 @@ body {
     background: rgba(78, 75, 75, 0.068);
     padding: 40px;
     border-radius: 10px;
+    margin-bottom: 50px;
 }
 
 /*---------- Footer ----------*/

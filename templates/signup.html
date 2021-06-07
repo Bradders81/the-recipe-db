@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% block content %}
 
 <h1 id="login-header" class="headings">Sign Up</h1>
 
@@ -10,54 +11,36 @@
         <form method="POST" action="{{ url_for('signup') }}">
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input
-              type="username"
-              minlength="5"
-              maxlength="15"
-              pattern="^[a-zA-Z0-9]{5,15}]$"
-              name="username"
-              class="form-control"
-              id="username"
-              placeholder="Between 5 and 15 characters. Letters and numbers only"
-            />
+            <input type="username" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}]$" name="username"
+              class="form-control" id="username" placeholder="Between 5 and 15 characters. Letters and numbers only" />
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input
-              type="email"
-              name="email"
-              class="form-control"
-              id="email"
-              placeholder="email"
-              aria-describedby="emailHelp"
-              required
-            />
+            <input type="email" name="email" class="form-control" id="email" placeholder="email"
+              aria-describedby="emailHelp" required />
             <div id="emailHelp" class="form-text">
               <small>We will never share your email with anyone else.</small>
             </div>
             <div class="mb-3"></div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input
-                type="password"
-                name="password"
-                minlength="5"
-                maxlength="15"
-                pattern="^[a-zA-Z0-9]{5,15}]$"
-                class="form-control"
-                placeholder="Between 5 and 5 characters. Letters and numbers only"
-                id="password"
-                required
-              />
+              <input type="password" name="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}]$"
+                class="form-control" placeholder="Between 5 and 5 characters. Letters and numbers only" id="password"
+                required />
+            </div>
+            <div class="mb-3"></div>
+            <div class="mb-3">
+              <label for="confirm_password" class="form-label">Password</label>
+              <input type="password" name="confirm_password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}]$"
+                class="form-control" placeholder="Between 5 and 5 characters. Letters and numbers only" id="confirm_password"
+                required />
             </div>
           </div>
           <div class="align-center">
             <button type="submit" class="cta-btn">Create Account</button>
             <div id="login-sign-up-cta">
               <h5>Already got an Account?</h5>
-              <a href="{{ url_for('login') }}" id="sign-up-btn"
-                >Click here to login</a
-              >
+              <a href="{{ url_for('login') }}" id="sign-up-btn">Click here to login</a>
             </div>
           </div>
         </form>
