@@ -97,6 +97,19 @@ def profile():
 
     username = session["user"]
 
+    if request.method == "POST":
+        new_recipe = {
+            "recipe_name": request.form.get("recipe_name"),
+            "description": request.form.get("description"),
+            "instructions": request.form.get("instructions"),
+            "ingrediants": request.form.get("ingrediants"),
+            "cooking_time": request.form.get("cooking_time"),
+            "type": request.form.get("type"),
+            "created_by": username
+        }
+        mongo.db.recipes.insert_one(new_recipe)
+        flash("Vola! Receipe added to your Cook Book")
+
     return render_template("profile.html", username=username)
 
 

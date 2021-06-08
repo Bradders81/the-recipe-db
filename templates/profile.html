@@ -15,31 +15,31 @@
                 <div id="recipe-form" class="sm-12 col-lg-6 offset-lg-3">
                     <!-- Credit: Form from Bootstrap -->
 
-                    <form>
+                    <form method="POST" action="{{url_for('profile') }}">
                         <div class="mb-3">
                             <label for="recipe_name" class="form-label">Name of Receipe</label>
-                            <input type="text" class="form-control" name="recipe_name" id="receipe_name">
+                            <input type="text" class="form-control" name="recipe_name" id="receipe_name" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea type="text" class="form-control" id="description"></textarea>
+                            <textarea type="text" class="form-control" name="description" id="description" required></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="instructions" class="form-label">Cooking Instructions</label>
-                            <textarea type="text" class="form-control" id="instructions"></textarea>
+                            <textarea type="text" class="form-control" name="instructions" id="instructions" required></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="ingrediants" class="form-label">Ingrediants</label>
                             <textarea type="text" class="form-control" name="ingrediants" id="ingrediants"
-                                placeholder="Please list each ingrediant on a separate line"></textarea>
+                                placeholder="Please list each ingrediant on a separate line" required></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="cooking-time" class="form-label">Prep and Cooking Time</label>
-                            <input type="text" class="form-control" name="cooking_time" id="cooking-time">
+                            <input type="text" class="form-control" name="cooking_time" id="cooking-time" required>
                         </div>
                         <div class="form-group">
                             <label for="type">Type of Meal</label>
