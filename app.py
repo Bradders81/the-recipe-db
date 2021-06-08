@@ -97,6 +97,9 @@ def profile():
 
     username = session["user"]
 
+    users_cookbook = mongo.db.recipes.find({"created_by": username})
+    
+
     if request.method == "POST":
         new_recipe = {
             "recipe_name": request.form.get("recipe_name"),
@@ -110,7 +113,8 @@ def profile():
         mongo.db.recipes.insert_one(new_recipe)
         flash("Vola! Receipe added to your Cook Book")
 
-    return render_template("profile.html", username=username)
+    return render_template(
+        "profile.html", username=username,  users_cookbook=users_cookbook)
 
 
 if __name__ == "__main__":

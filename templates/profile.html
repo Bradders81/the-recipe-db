@@ -23,12 +23,14 @@
 
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea type="text" class="form-control" name="description" id="description" required></textarea>
+                            <textarea type="text" class="form-control" name="description" id="description"
+                                required></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="instructions" class="form-label">Cooking Instructions</label>
-                            <textarea type="text" class="form-control" name="instructions" id="instructions" required></textarea>
+                            <textarea type="text" class="form-control" name="instructions" id="instructions"
+                                required></textarea>
                         </div>
 
                         <div class="mb-3">
@@ -61,11 +63,16 @@
         </div>
         <div class=" col-12 col-md-4">
             <div class="align-center">
-                <h5>My Recipes</h5>
+                <h5>My Cookbook</h5>
             </div>
             <div id="my-recipes">
-                <ul class="list-group">
-                    <li class="list-group-item"> Name of Recipe will go here</li>
+                <ul class="list-group align-center">
+
+                    {% for recipe in users_cookbook %}
+                    <li class="list-group-item">
+                        <a href="#">{{ recipe.recipe_name }}</a>
+                    </li><br>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
