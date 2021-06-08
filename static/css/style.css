@@ -148,6 +148,33 @@ article {
     margin-bottom: 50px;
 }
 
+/*----- Profile Page -----*/
+#ingrediants,
+#instructions,
+#description {
+    height: 10em;
+    line-height: 1;
+}
+#my-recipes,
+#recipe-form {
+    background: rgba(78, 75, 75, 0.30);
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+#profile-bg {
+    background: url(../images/profile.jpg) center center no-repeat;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+}
+
+
+#btn-upload-recipe {
+    margin-bottom: 50px;
+}
+
 /*---------- Footer ----------*/
 footer {
     background-color: rgb(255, 127, 80);
