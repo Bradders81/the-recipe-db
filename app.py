@@ -91,15 +91,14 @@ def login():
 
 @ app.route("/profile", methods=["GET", "POST"])
 def profile():
-
     if "user" not in session:
         return redirect(url_for("login"))
 
     username = session["user"]
 
     users_cookbook = mongo.db.recipes.find({"created_by": username})
-    
 
+    # Adds new recipe to database
     if request.method == "POST":
         new_recipe = {
             "recipe_name": request.form.get("recipe_name"),
@@ -111,10 +110,28 @@ def profile():
             "created_by": username
         }
         mongo.db.recipes.insert_one(new_recipe)
-        flash("Vola! Receipe added to your Cook Book")
+        flash("Vola! Recipe added to your Cook Book")
 
     return render_template(
         "profile.html", username=username,  users_cookbook=users_cookbook)
+
+
+@app.route("/profile/<recipe_id>")
+def recipe_details(recipe_id):
+    """
+    Gets details of the recipe selected by the user from their profile page
+    desplays the recipe details on recipe-details.html.  Also obtains the
+    user name from the session cookie to display, along with a list of
+    all the users recipes for easy access.
+    """
+
+    username = session["user"]
+    users_cookbook = mongo.db.recipes.find({"created_by": username})
+    user_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    return render_template("recipe-details.html", username=username,
+                           user_recipe=user_recipe,
+                           users_cookbook=users_cookbook)
 
 
 if __name__ == "__main__":
