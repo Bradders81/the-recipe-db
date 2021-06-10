@@ -21,8 +21,8 @@ mongo = PyMongo(app)
 @app.route("/")
 def home_page():
     """
-    Obtains three random recipes from the database to be injected in to 
-    the jinja for loop to be deplayed as samples of the recipes held
+    Obtains three random recipes from the database to be injected in to
+    the jinja for loop to be deplayed as samples of the recipes held in the database
     """
     sample = mongo.db.recipes.aggregate([{"$sample": {"size": 3}}])
 
@@ -33,9 +33,9 @@ def home_page():
 def signup():
     """
     When the user inputs their details into the sign up
-    form this function first checks to see if the username or 
+    form this function first checks to see if the username or
     email address is already in use.  If already in use a, massage is
-    displayed to the user to let them know. If username and/or email address 
+    displayed to the user to let them know. If username and/or email address
     are not in use the account is created and the user is directed to the login page
     """
     if request.method == "POST":
@@ -80,7 +80,6 @@ def login():
     entered are correct and logs the user into their account if they are.
     User is automatically directed to their profile page. Uer is alerted if 
     they entre the wrong details and is invited to try again
-    
     """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
@@ -116,12 +115,18 @@ def logout():
 
 @ app.route("/profile", methods=["GET", "POST"])
 def profile():
+    """
+    Creates dictionary an the recipe provided by the user
+    and stores is in the database.  Once the recipe is stored
+    the updated copy of the recipes in the database collection
+    are collected from the database and stored in the users_cookbook
+    variable and passed to the profile page for rendering.
+    """
     if "user" not in session:
         return redirect(url_for("login"))
 
     username = session["user"]
-    users_cookbook = mongo.db.recipes.find({"created_by": username})
-
+    
     # Adds new recipe to database
     if request.method == "POST":
         new_recipe = {
@@ -136,12 +141,14 @@ def profile():
         mongo.db.recipes.insert_one(new_recipe)
         flash("Voila! Recipe added to your Cook Book")
 
+        users_cookbook = mongo.db.recipes.find({"created_by": username})
+
     return render_template(
         "profile.html", username=username,  users_cookbook=users_cookbook)
 
 
 @app.route("/profile/<recipe_id>")
-def recipe_details(recipe_id):
+def recipe_detail(recipe_id):
     """
     Gets details of the recipe selected by the user from their profile page
     desplays the recipe details on recipe-details.html.  Also obtains the
