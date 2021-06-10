@@ -164,7 +164,7 @@ hr {
 }
 
 /*----- Profile Page -----*/
-#ingrediants,
+#ingredients,
 #instructions,
 #description {
     height: 10em;
@@ -187,6 +187,16 @@ hr {
 
 #btn-upload-recipe {
     margin-bottom: 50px;
+}
+
+/*----- Recipes -----*/
+#cards {
+    text-decoration: none;
+    color: #000;
+}
+
+#cards-layout {
+    margin: 30px;
 }
 
 /*----- Recipe Details Page -----*/
