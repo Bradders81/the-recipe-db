@@ -21,13 +21,13 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home_page():
-    return render_template("index.html")
+    """
+    Obtains three random recipes from the database to be injected in to 
+    the jinja for loop to be deplayed as samples of the recipes held
+    """
+    sample = mongo.db.recipes.aggregate([{"$sample": {"size": 3}}])
 
-
-@app.route("/recipes")
-def recipes():
-    recipes = mongo.db.recipes.find()
-    return render_template("recipes.html", recipes=recipes)
+    return render_template("index.html", sample=sample)
 
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -143,6 +143,13 @@ def recipe_details(recipe_id):
     return render_template("recipe-details.html", username=username,
                            user_recipe=user_recipe,
                            users_cookbook=users_cookbook)
+
+
+@app.route("/recipes")
+def recipes():
+    recipes = mongo.db.recipes.find()
+
+    return render_template("recipes.html", recipes=recipes)
 
 
 if __name__ == "__main__":

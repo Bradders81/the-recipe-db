@@ -19,14 +19,33 @@
                 Do you love food and cooking? Are you always on the look out to try a new recipe or are you a creative
                 foodie that has come up with your own brilliant recipes that should be shared with the world? <br><br>
                 The Recipe Database is your very own cookbook. Build your own portfolio of recipes to share with other
-                users.  Search through the recipes uploaded by others to try for yourself. Click <a id="text-link"
-                href="{{ url_for('signup') }}">here</a> to get signed up.
+                users. Search through the recipes uploaded by others to try for yourself. Click <a id="text-link"
+                    href="{{ url_for('signup') }}">here</a> to get signed up.
 
             </article>
         </div>
     </div>
-</div>
+
+    <div class="container-fluid">
+        <div id="cards-layout" class="row">
+            {% for recipe in sample %}
+            <div class="col-12 col-md-4 align-center ">
+                <!-- Credit: Card from Bootstrap and then customised -->
+                <a id="cards" href="#">
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ recipe.recipe_name}}</h5>
+                            <p class="card-text"> {{ recipe.description}}</p>
+                            <h6>By: {{ recipe.created_by }}</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
 
 
-{% endblock %}
+    {% endblock %}
