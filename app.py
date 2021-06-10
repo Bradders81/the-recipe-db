@@ -89,13 +89,24 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/logout")
+def logout():
+    """
+    Will log the user out if they are logged in and return them
+    to the loggin page.
+    """
+    if "user" in session:
+        session.clear()
+
+    return render_template("login.html")
+
+
 @ app.route("/profile", methods=["GET", "POST"])
 def profile():
     if "user" not in session:
         return redirect(url_for("login"))
 
     username = session["user"]
-
     users_cookbook = mongo.db.recipes.find({"created_by": username})
 
     # Adds new recipe to database
@@ -104,13 +115,13 @@ def profile():
             "recipe_name": request.form.get("recipe_name"),
             "description": request.form.get("description"),
             "instructions": request.form.get("instructions"),
-            "ingrediants": request.form.get("ingrediants"),
+            "ingredients": request.form.get("ingredients"),
             "cooking_time": request.form.get("cooking_time"),
             "type": request.form.get("type"),
             "created_by": username
         }
         mongo.db.recipes.insert_one(new_recipe)
-        flash("Vola! Recipe added to your Cook Book")
+        flash("Voila! Recipe added to your Cook Book")
 
     return render_template(
         "profile.html", username=username,  users_cookbook=users_cookbook)
