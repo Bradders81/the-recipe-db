@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-md-center align-center">
+        <div class="col-12">
+            <h1 class="headings recipe-headings heading-margin">{{ user_recipe.recipe_name }}</h1>
+        </div>
+        <div class=" col-12 col-md-4 ">
+            <p>Can be made in: <span class="time-type">{{ user_recipe.cooking_time }}</span> </p>
+        </div>
+        <div class="col-12 col-md-4 ">
+            <p> Meal:<span class=time-type> {{ user_recipe.type }}</span></p>
+        </div>
+        <div class="col-12 col-md-4 ">
+            <p> By:<span class=time-type> {{ username }}</span></p>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row justify-content-md-center align-center">
+        <div class="col-12">
+            <h3 class="recipe-headings heading-margin">Description</h3>
+            <p> {{user_recipe.description}} </p>
+        </div>
+        <hr>
+    </div>
+    <div class="row justify-content-md-center align-center">
+        <div class="col-12 col-md-6">
+            <h3 class="recipe-headings heading-margin">Instructions</h3>
+            <div class="recipe-text">
+                <p> {{user_recipe.instructions}} </p>
+            </div>
+        </div>
+        
+        <div class="col-12 col-md-6">
+            <h3 class="recipe-headings heading-margin">Ingredients</h3>
+            <div class="recipe-text">
+                <p> {{user_recipe.ingrediants}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

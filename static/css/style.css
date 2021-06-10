@@ -12,11 +12,21 @@
     font-family: 'Pattaya', sans-serif;
 }
 
+.heading-margin {
+    margin-top: 20px;
+}
+
 .align-center {
     text-align: center;
     
 }
 
+.text-bg-color {
+    background: #fff;
+    padding: 10px;
+    border-radius: 2px;
+
+}
 /*----- Flash messages -----*/
 
 #flash-msg {
@@ -140,6 +150,11 @@ article {
     margin-top: 15px;
     display: inline-flexbox;
 }
+hr {
+    
+    width: 80%;
+    margin: auto;
+}
 
 #login-sign-up {
     background: rgba(78, 75, 75, 0.068);
@@ -155,7 +170,7 @@ article {
     height: 10em;
     line-height: 1;
 }
-#my-recipes,
+.my-recipes,
 #recipe-form {
     background: rgba(78, 75, 75, 0.30);
     padding: 40px;
@@ -163,16 +178,35 @@ article {
     margin-bottom: 50px;
 }
 
-#profile-bg {
+.profile-bg {
     background: url(../images/profile.jpg) center center no-repeat;
-    width: 100%;
-    height: auto;
+    width: auto;
     background-size: cover;
 }
 
 
 #btn-upload-recipe {
     margin-bottom: 50px;
+}
+
+/*----- Recipe Details Page -----*/
+.user-heading {
+    margin-top: 15px;
+}
+
+.recipe-headings {
+    color:rgb(255, 127, 80); ;
+}
+
+.time-type{
+    color:rgb(255, 127, 80);
+    font-weight: 600;
+}
+
+.recipe-text {
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /*---------- Footer ----------*/
