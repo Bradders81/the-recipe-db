@@ -1,28 +1,33 @@
 {% extends "base.html" %}
 
-<h1 class=" align-center">Cookbook</h1>
 
 {% block content %}
 
 <h1 class="headings heading-margin"> Recipes</h1>
 
 <div id="cards-layout" class="row">
-    <div class="col-12 col-md-3 align-center ">
+    {% for recipe in recipes %}
+    <div class="col-12 col-md-4 align-center ">
         <!-- Credit: Card from Bootstrap and then customised -->
         <a id="cards" href="#">
             <div class="card" style="width: 18rem;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title"> Recipe Name will go here</h5>
-                    <p class="card-text"> Description of recipe will go here</p>
-                    <h6>By user will go here</h6>
-                    
+                    <h5 class="card-title"> {{ recipe.recipe_name}}</h5>
+                    <p class="card-text"> {{ recipe.description}}</p>
+                    <h6>By: {{ recipe.created_by }}</h6>
+                </div>
+            </div>
         </a>
     </div>
-</div>
+    {% endfor %}
 </div>
 
-</div>
+
+
+
+
+
 
 
 {% endblock %}
