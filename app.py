@@ -19,7 +19,6 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/home")
 def home_page():
     """
     Obtains three random recipes from the database to be injected in to 
@@ -32,6 +31,13 @@ def home_page():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    """
+    When the user inputs their details into the sign up
+    form this function first checks to see if the username or 
+    email address is already in use.  If already in use a, massage is
+    displayed to the user to let them know. If username and/or email address 
+    are not in use the account is created and the user is directed to the login page
+    """
     if request.method == "POST":
         email_registered = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
@@ -69,6 +75,13 @@ def signup():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """ 
+    Works with the login form.  Checks the login details
+    entered are correct and logs the user into their account if they are.
+    User is automatically directed to their profile page. Uer is alerted if 
+    they entre the wrong details and is invited to try again
+    
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username")})
