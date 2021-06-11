@@ -193,6 +193,7 @@ def edit_recipe(recipe_id):
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
         flash("Recipe Updated!")
+        return redirect(url_for("profile"))
 
     users_cookbook = mongo.db.recipes.find({"created_by": username})
     user_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
