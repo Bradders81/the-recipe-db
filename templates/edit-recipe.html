@@ -9,37 +9,37 @@
         </div>
         <div class=" col-12 col-md-8">
             <div class="align-center">
-                <h5 class="sub-headings">Upload a Recipe</h5>
+                <h5 id="edit-heading"> <strong> Edit : {{ recipe.recipe_name }}</strong></h5>
             </div>
             <div class="row">
-                <div id="recipe-form" class="sm-12 col-lg-6 offset-lg-3">
+                <div id="edit-form" class="sm-12 col-lg-6 offset-lg-3">
                     <!-- Credit: Form from Bootstrap -->
-                    <form method="POST" action="{{url_for('profile') }}">
+                    <form method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
                         <div class="mb-3">
-                            <label for="recipe_name" class="sub-headings form-label">Name of Recipe</label>
+                            <label for="recipe_name" class="edit-form-headings form-label">Name of Recipe</label>
                             <input type="text" class="form-control" name="recipe_name" id="receipe_name" required>
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="sub-headings form-label">Description</label>
+                            <label for="description" class="edit-form-headings form-label">Description</label>
                             <textarea type="text" class="form-control" name="description" id="description" 
                             required></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="instructions" class=" sub-headings form-label">Cooking Instructions</label>
+                            <label for="instructions" class=" edit-form-headings form-label">Cooking Instructions</label>
                             <textarea type="text" class="form-control" name="instructions" id="instructions"
                                 required></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="ingredients" class="sub-headings form-label">Ingredients</label>
+                            <label for="ingredients" class="edit-form-headings form-label">Ingredients</label>
                             <textarea type="text" class="form-control" name="ingredients" id="ingrediants"
                                 placeholder="Please list each ingredient on a separate line" required></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="cooking-time" class="sub-headings form-label">Prep and Cooking Time</label>
+                            <label for="cooking-time" class="edit-form-headings form-label">Prep and Cooking Time</label>
                             <input type="text" class="form-control" name="cooking_time" id="cooking-time" required>
                         </div>
                         <div class="form-group">
-                            <label  class="sub-headings" for="type">Type of Meal</label>
+                            <label  class="edit-form-headings" for="type">Type of Meal</label>
                             <select class="form-control-small" name="type" id="type">
                                 <option>Breakfast</option>
                                 <option>Lunch</option>

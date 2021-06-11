@@ -172,20 +172,65 @@ hr {
 }
 .my-recipes,
 #recipe-form {
-    background: rgba(78, 75, 75, 0.30);
+    background: rgba(78, 75, 75, 0.068);
     padding: 40px;
     border-radius: 10px;
     margin-bottom: 50px;
 }
 
-.profile-bg {
-    background: url(../images/profile.jpg) center center no-repeat;
-    width: auto;
-    background-size: cover;
+.sub-headings {
+    color:rgb(255, 127, 80); 
+    font-weight: 600;
+    margin-top: 15px;
+}
+#recipe-li {
+    color: #000;
+    font-weight: 500;
+    text-decoration: none;
 }
 
+#recipe-li:hover {
+    color: rgb(255, 127, 80);
+}
+
+#edit-btn {
+    padding: 5px 15px 5px 15px;
+    border-radius: 25px;
+    font-weight: 600;
+    color: #000;
+    background: rgb(255, 127, 80);
+    float: right;
+    text-decoration: none;
+    box-shadow: 2px 2px 2px;
+}
+
+#edit-btn:hover {
+color: #f5eded;
+background:#000;
+text-decoration: none;
+}
 
 #btn-upload-recipe {
+    margin-bottom: 50px;
+}
+
+/*----- Edit Recipe Page -----*/
+
+#edit-heading {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.edit-form-headings {
+    color:#000;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+#edit-form {
+    background: rgb(255, 127, 80, 0.5);
+    padding: 40px;
+    border-radius: 10px;
     margin-bottom: 50px;
 }
 
@@ -205,7 +250,7 @@ hr {
 }
 
 .recipe-headings {
-    color:rgb(255, 127, 80); ;
+    color:rgb(255, 127, 80); 
 }
 
 .time-type{

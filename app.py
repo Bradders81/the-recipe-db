@@ -22,7 +22,8 @@ mongo = PyMongo(app)
 def home_page():
     """
     Obtains three random recipes from the database to be injected in to
-    the jinja for loop to be deplayed as samples of the recipes held in the database
+    the jinja for loop to be deplayed as samples of the recipes held in
+    the database.
     """
     sample = mongo.db.recipes.aggregate([{"$sample": {"size": 3}}])
 
@@ -36,7 +37,8 @@ def signup():
     form this function first checks to see if the username or
     email address is already in use.  If already in use a, massage is
     displayed to the user to let them know. If username and/or email address
-    are not in use the account is created and the user is directed to the login page
+    are not in use the account is created and the user is directed to the
+    login page
     """
     if request.method == "POST":
         email_registered = mongo.db.users.find_one(
@@ -75,10 +77,10 @@ def signup():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """ 
+    """
     Works with the login form.  Checks the login details
     entered are correct and logs the user into their account if they are.
-    User is automatically directed to their profile page. Uer is alerted if 
+    User is automatically directed to their profile page. Uer is alerted if
     they entre the wrong details and is invited to try again
     """
     if request.method == "POST":
@@ -113,7 +115,7 @@ def logout():
     return render_template("login.html")
 
 
-@ app.route("/profile", methods=["GET", "POST"])
+@app.route("/profile", methods=["GET", "POST"])
 def profile():
     """
     Creates dictionary an the recipe provided by the user
@@ -126,7 +128,8 @@ def profile():
         return redirect(url_for("login"))
 
     username = session["user"]
-    
+    users_cookbook = mongo.db.recipes.find({"created_by": username})
+
     # Adds new recipe to database
     if request.method == "POST":
         new_recipe = {
@@ -141,10 +144,8 @@ def profile():
         mongo.db.recipes.insert_one(new_recipe)
         flash("Voila! Recipe added to your Cook Book")
 
-        users_cookbook = mongo.db.recipes.find({"created_by": username})
-
     return render_template(
-        "profile.html", username=username,  users_cookbook=users_cookbook)
+            "profile.html", username=username, users_cookbook=users_cookbook)
 
 
 @app.route("/profile/<recipe_id>")
@@ -170,6 +171,22 @@ def recipes():
     recipes = mongo.db.recipes.find()
 
     return render_template("recipes.html", recipes=recipes)
+
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    """
+    Gets the details of the recipe of the from the database that the user
+    wants to edit and renders the data in the edit form for the user to edit
+    and resubmit back to the database collection
+    """
+    username = session["user"]
+    users_cookbook = mongo.db.recipes.find({"created_by": username})
+    user_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    return render_template("edit-recipe.html", username=username,
+                           recipe=user_recipe,
+                           users_cookbook=users_cookbook)
 
 
 if __name__ == "__main__":
