@@ -207,9 +207,10 @@ def delete_recipe(recipe_id):
     """
     Deletes a recipe from the collection in the database
     """
-    mongo.db.recipes.remove({"_id": object(recipe_id)})
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Deleted")
-    return redirect(ulr_for("profile"))
+
+    return redirect(url_for("profile"))
 
 
 if __name__ == "__main__":
