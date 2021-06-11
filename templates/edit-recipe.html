@@ -17,38 +17,49 @@
                     <form method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
                         <div class="mb-3">
                             <label for="recipe_name" class="edit-form-headings form-label">Name of Recipe</label>
-                            <input type="text" class="form-control" name="recipe_name" id="receipe_name" required>
+                            <input value="{{ recipe.recipe_name }}" type="text" class="form-control" name="recipe_name"
+                                id="receipe_name" required>
+
                         </div>
                         <div class="mb-3">
                             <label for="description" class="edit-form-headings form-label">Description</label>
-                            <textarea type="text" class="form-control" name="description" id="description" 
-                            required></textarea>
+                            <textarea type="text" class="form-control" name="description" id="description" required>
+                                {{- recipe.description -}}
+                        </textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="instructions" class=" edit-form-headings form-label">Cooking Instructions</label>
-                            <textarea type="text" class="form-control" name="instructions" id="instructions"
-                                required></textarea>
+                            <label for="instructions" class=" edit-form-headings form-label">Cooking
+                                Instructions</label>
+                            <textarea type="text" class="form-control" name="instructions" id="instructions" required>
+                                {{- recipe.instructions-}}
+                            </textarea>
                         </div>
                         <div class="mb-3">
                             <label for="ingredients" class="edit-form-headings form-label">Ingredients</label>
-                            <textarea type="text" class="form-control" name="ingredients" id="ingrediants"
-                                placeholder="Please list each ingredient on a separate line" required></textarea>
+                            <textarea type="text" class="form-control" name="ingredients" id="ingredients"
+                                placeholder="Please list each ingredient on a separate line" required>
+                                {{- recipe.ingredients-}}
+                            </textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="cooking-time" class="edit-form-headings form-label">Prep and Cooking Time</label>
-                            <input type="text" class="form-control" name="cooking_time" id="cooking-time" required>
+                            <label for="cooking-time" class="edit-form-headings form-label">Prep and Cooking
+                                Time</label>
+                            <input value="{{ recipe.cooking_time }}" type="text" class="form-control" name="cooking_time"
+                                id="cooking-time" required>
                         </div>
                         <div class="form-group">
-                            <label  class="edit-form-headings" for="type">Type of Meal</label>
-                            <select class="form-control-small" name="type" id="type">
-                                <option>Breakfast</option>
+                            <label class="edit-form-headings" for="type">Type of Meal</label>
+                            <select value="{{ recipe.type }}" class="form-control-small" name="type" id="type"> 
+                                <option>Breakfast</option>  
                                 <option>Lunch</option>
                                 <option>Dinner</option>
                                 <option>Dessert</option>
+                                
                             </select>
                         </div>
                         <div id="btn-upload-recipe" class="align-center">
                             <button type="submit" class="btn cta-btn">Submit</button>
+                            <p id="reminder-p"><strong>Check you have the correct meal type before you submit</strong></p>
                         </div>
                     </form>
                 </div>
@@ -65,8 +76,8 @@
                     {% for recipe in users_cookbook %}
 
                     <li class="list-group-item">
-                        <a id="recipe-li" href="/profile/{{ recipe._id }}">{{ recipe.recipe_name }}</a>
-                        <a id="edit-btn" href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit</a>
+                        <a class="recipe-li" href="/profile/{{ recipe._id }}">{{ recipe.recipe_name }}</a>
+                        <a class="edit-btn" href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit</a>
                     </li>
                     {% endfor %}
                 </ul>

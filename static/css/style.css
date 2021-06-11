@@ -183,17 +183,17 @@ hr {
     font-weight: 600;
     margin-top: 15px;
 }
-#recipe-li {
+.recipe-li {
     color: #000;
     font-weight: 500;
     text-decoration: none;
 }
 
-#recipe-li:hover {
+.recipe-li:hover {
     color: rgb(255, 127, 80);
 }
 
-#edit-btn {
+.edit-btn {
     padding: 5px 15px 5px 15px;
     border-radius: 25px;
     font-weight: 600;
@@ -204,7 +204,7 @@ hr {
     box-shadow: 2px 2px 2px;
 }
 
-#edit-btn:hover {
+.edit-btn:hover {
 color: #f5eded;
 background:#000;
 text-decoration: none;
@@ -232,6 +232,10 @@ text-decoration: none;
     padding: 40px;
     border-radius: 10px;
     margin-bottom: 50px;
+}
+
+#reminder-p {
+    margin-top: 10px;
 }
 
 /*----- Recipes -----*/
