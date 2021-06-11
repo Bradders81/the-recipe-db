@@ -130,7 +130,6 @@ def profile():
     username = session["user"]
     users_cookbook = mongo.db.recipes.find({"created_by": username})
 
-    # Adds new recipe to database
     if request.method == "POST":
         new_recipe = {
             "recipe_name": request.form.get("recipe_name"),
@@ -181,6 +180,20 @@ def edit_recipe(recipe_id):
     and resubmit back to the database collection
     """
     username = session["user"]
+
+    if request.method == "POST":
+        update_recipe = {
+            "recipe_name": request.form.get("recipe_name"),
+            "description": request.form.get("description"),
+            "instructions": request.form.get("instructions"),
+            "ingredients": request.form.get("ingredients"),
+            "cooking_time": request.form.get("cooking_time"),
+            "type": request.form.get("type"),
+            "created_by": username
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
+        flash("Recipe Updated!")
+
     users_cookbook = mongo.db.recipes.find({"created_by": username})
     user_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
