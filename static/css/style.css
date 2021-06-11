@@ -194,7 +194,7 @@ hr {
 }
 
 .edit-btn {
-    padding: 5px 15px 5px 15px;
+    padding: 5px 25px 5px 25px;
     border-radius: 25px;
     font-weight: 600;
     color: #000;
@@ -208,6 +208,24 @@ hr {
 color: #f5eded;
 background:#000;
 text-decoration: none;
+}
+
+/*----- Delete btn -----*/
+.delete-btn {
+    padding: 5px 15px 5px 15px;
+    border-radius: 25px;
+    font-weight: 600;
+    color: #000;
+    background:rgb(255, 1, 1);
+    float: right;
+    text-decoration: none;
+    box-shadow: 2px 2px 2px;
+}
+
+.delete-btn:hover {
+    color: #fff;
+    background: #000;
+    text-decoration: none;
 }
 
 #btn-upload-recipe {
