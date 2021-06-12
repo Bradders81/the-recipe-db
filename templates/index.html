@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row no-gutters">
+    <div class="row g-0">
         <div class="col-12" id="bg-image">
             <h1 id="cta-text">A Recipe Database For Foodies</h1>
             <a class="cta-btn" href="{{ url_for('signup') }}">Sign Up</a>
@@ -29,20 +29,20 @@
 </div>
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row justify-content-center">
         {% for recipe in sample %}
-        <div class="col-12 col-md-4 align-center">
-            <!-- Credit: Card from Bootstrap and then customised -->
-            <a class="cards cards-layout" href="/profile/{{ recipe._id }}">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ recipe.image }}" class="card-img-top recipe-image" alt="{{ recipe.image_alt }}">
-                    <div class="card-body">
-                        <h5 class="card-title"> {{ recipe.recipe_name}}</h5>
-                        
-                        <h6>By: {{ recipe.created_by }}</h6>
+        <div class="col-12 col-md-3 card-size">
+            <div class="card-size">
+                <a class="cards" href="/profile/{{ recipe._id }}">
+                    <div class="card">
+                        <img class="card-image" src="{{ recipe.image }}" class="card-img-top recipe-image"
+                            alt="{{ recipe.image_alt }}">
+                        <div class="cad-body">
+                            <h5 class="card-title"> {{ recipe.recipe_name}}</h5>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
         {% endfor %}
     </div>

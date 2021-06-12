@@ -19,21 +19,21 @@
     </div>
 </div>
 
-
-<div class="row align-center">
+<div class="row justify-content-center">
     {% for recipe in recipes %}
-    <div class="col-12 col-md-3 cards-layout">
-        <!-- Credit: Card from Bootstrap and then customised -->
-        <a class="cards" href="/profile/{{ recipe._id }}">
-            <div class="card" style="width: 300px;">
-                <img class="card-image" src="{{ recipe.image }}" class="card-img-top recipe-image"
-                    alt="{{ recipe.image_alt }}">
-                <div class="cad-body">
-                    <h5 class="card-title"> {{ recipe.recipe_name}}</h5>
-                    <h6>By: {{ recipe.created_by }}</h6>
+    <div class="col-12 col-md-3 card-size">
+                <div class="card-size">
+            <a class="cards" href="/profile/{{ recipe._id }}">
+                <div class="card">
+                    <img class="card-image" src="{{ recipe.image }}" class="card-img-top recipe-image"
+                        alt="{{ recipe.image_alt }}">
+                    <div class="cad-body">
+                        <h5 class="card-title"> {{ recipe.recipe_name}}</h5>
+                        <h6>By: {{ recipe.created_by }}</h6>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
     </div>
     {% endfor %}
 </div>

@@ -149,7 +149,6 @@ article {
     display: inline-flexbox;
 }
 hr {
-    
     width: 80%;
     margin: auto;
 }
@@ -264,19 +263,29 @@ text-decoration: none;
 
 /*----- Recipe Cards -----*/
 
-.card-image {
-    width: auto;
-    height: 100%;
-    overflow: hidden;
-}
+
 .cards {
     color: #000;
+    
     
 }
 
 .cards:hover {
     color: rgb(255, 127, 80);
     text-decoration: none
+}
+.size {
+    max-width: 50%;
+}
+
+.card-size {
+    max-width: 350px;
+    height: auto;
+    margin: 10px;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px 8px;
+    display: inline;
 }
 
 /*----- Recipe Details Page -----*/
