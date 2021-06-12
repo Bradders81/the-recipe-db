@@ -26,27 +26,27 @@
             </article>
         </div>
     </div>
+</div>
 
-    <div class="container-fluid">
-        <div id="cards-layout" class="row">
-            {% for recipe in sample %}
-            <div class="col-12 col-md-4 align-center ">
-                <!-- Credit: Card from Bootstrap and then customised -->
-                <a id="cards" href="#">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"> {{ recipe.recipe_name}}</h5>
-                            <p class="card-text"> {{ recipe.description}}</p>
-                            <h6>By: {{ recipe.created_by }}</h6>
-                        </div>
+<div class="container-fluid">
+    <div class="row">
+        {% for recipe in sample %}
+        <div class="col-12 col-md-4 align-center">
+            <!-- Credit: Card from Bootstrap and then customised -->
+            <a class="cards cards-layout" href="/profile/{{ recipe._id }}">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ recipe.image }}" class="card-img-top recipe-image" alt="{{ recipe.image_alt }}">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ recipe.recipe_name}}</h5>
+                        
+                        <h6>By: {{ recipe.created_by }}</h6>
                     </div>
-                </a>
-            </div>
-            {% endfor %}
+                </div>
+            </a>
         </div>
+        {% endfor %}
     </div>
+</div>
 
 
-
-    {% endblock %}
+{% endblock %}

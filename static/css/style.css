@@ -74,7 +74,6 @@ body {
 }
 
 .nav-hover:hover {
-   
     color: rgb(255, 127, 80);
     text-decoration: none;
 }
@@ -109,7 +108,6 @@ body {
     color: #f5eded;
     background:#000;
     text-decoration: none;
-  
 }
 
 article {
@@ -264,14 +262,21 @@ text-decoration: none;
     margin-top: 10px;
 }
 
-/*----- Recipes -----*/
-#cards {
-    text-decoration: none;
+/*----- Recipe Cards -----*/
+
+.card-image {
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+}
+.cards {
     color: #000;
+    
 }
 
-#cards-layout {
-    margin: 30px;
+.cards:hover {
+    color: rgb(255, 127, 80);
+    text-decoration: none
 }
 
 /*----- Recipe Details Page -----*/
