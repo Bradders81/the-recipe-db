@@ -11,7 +11,7 @@
         <form method="POST" action="{{ url_for('signup') }}">
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input type="username" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}]$" name="username"
+            <input type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}]$" name="username"
               class="form-control" id="username" placeholder="Between 5 and 15 characters. Letters and numbers only" />
           </div>
           <div class="mb-3">
