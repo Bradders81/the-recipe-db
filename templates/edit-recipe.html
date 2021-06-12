@@ -18,25 +18,29 @@
                         <div class="mb-3">
                             <label for="recipe_name" class="edit-form-headings form-label">Name of Recipe</label>
                             <input value="{{ recipe.recipe_name }}" type="text" class="form-control" name="recipe_name"
-                                id="receipe_name" required>
+                                minlength="1" maxlength="30" pattern="^[a-zA-Z0-9]{1,30}$" id="receipe_name" required>
 
                         </div>
                         <div class="mb-3">
                             <label for="description" class="edit-form-headings form-label">Description</label>
-                            <textarea type="text" class="form-control" name="description" id="description" required>
+                            <textarea type="text" class="form-control" name="description" minlength="1" maxlength="190"
+                                pattern="^[a-zA-Z0-9]{1,190}$" id="description" required>
                                 {{- recipe.description -}}
                         </textarea>
                         </div>
                         <div class="mb-3">
                             <label for="instructions" class=" edit-form-headings form-label">Cooking
                                 Instructions</label>
-                            <textarea type="text" class="form-control" name="instructions" id="instructions" required>
+                            <textarea type="text" class="form-control" name="instructions" minlength="1"
+                                maxlength="2000" pattern="^[a-zA-Z0-9]{1,2000}$" minlength="1" maxlength="2000"
+                                pattern="^[a-zA-Z0-9]{1,300}$" id="instructions" required>
                                 {{- recipe.instructions-}}
                             </textarea>
                         </div>
                         <div class="mb-3">
                             <label for="ingredients" class="edit-form-headings form-label">Ingredients</label>
-                            <textarea type="text" class="form-control" name="ingredients" id="ingredients"
+                            <textarea type="text" class="form-control" name="ingredients" minlength="1" maxlength="300"
+                                pattern="^[a-zA-Z0-9]{1,3}$" id="cooking-time" id="ingredients"
                                 placeholder="Please list each ingredient on a separate line" required>
                                 {{- recipe.ingredients-}}
                             </textarea>
@@ -44,22 +48,24 @@
                         <div class="mb-3">
                             <label for="cooking-time" class="edit-form-headings form-label">Prep and Cooking
                                 Time</label>
-                            <input value="{{ recipe.cooking_time }}" type="text" class="form-control" name="cooking_time"
-                                id="cooking-time" required>
+                            <input value="{{ recipe.cooking_time }}" type="text" class="form-control"
+                                name="cooking_time" minlength="1" maxlength="3" pattern="^[a-zA-Z0-9]{1,3}$"
+                                id="cooking-time" id="cooking-time" required>
                         </div>
                         <div class="form-group">
                             <label class="edit-form-headings" for="type">Type of Meal</label>
-                            <select value="{{ recipe.type }}" class="form-control-small" name="type" id="type"> 
-                                <option>Breakfast</option>  
+                            <select value="{{ recipe.type }}" class="form-control-small" name="type" id="type">
+                                <option>Breakfast</option>
                                 <option>Lunch</option>
                                 <option>Dinner</option>
                                 <option>Dessert</option>
-                                
+
                             </select>
                         </div>
                         <div id="btn-upload-recipe" class="align-center">
                             <button type="submit" class="btn cta-btn">Submit</button>
-                            <p id="reminder-p"><strong>Check you have the correct meal type before you submit</strong></p>
+                            <p id="reminder-p"><strong>Check you have the correct meal type before you submit</strong>
+                            </p>
                             <a href="{{ url_for('profile') }}">Cancel chances</a>
                         </div>
                     </form>

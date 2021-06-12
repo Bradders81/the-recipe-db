@@ -176,6 +176,8 @@ hr {
     padding: 40px;
     border-radius: 10px;
     margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .sub-headings {
@@ -222,7 +224,8 @@ text-decoration: none;
     float: right;
     text-decoration: none;
     box-shadow: 2px 2px 2px;
-    margin-top: 15px
+    margin-top: 15px;
+    margin-right: 10px;
 }
 
 .delete-btn:hover {
@@ -253,6 +256,8 @@ text-decoration: none;
     padding: 40px;
     border-radius: 10px;
     margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #reminder-p {
