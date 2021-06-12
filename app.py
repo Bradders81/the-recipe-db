@@ -107,6 +107,10 @@ def logout():
     """
     Will log the user out if they are logged in and return them
     to the loggin page.
+
+    This if statement is repeated in other functions so users cannot
+    access each others cookbooks and to stop signed out non-registered
+    users getting access to the member pages.
     """
     if "user" in session:
         session.clear()
@@ -168,7 +172,10 @@ def recipe_detail(recipe_id):
 
 @app.route("/recipes")
 def recipes():
+
     recipes = mongo.db.recipes.find()
+    if "user" not in session:
+        return redirect(url_for("login"))
 
     return render_template("recipes.html", recipes=recipes)
 
@@ -179,6 +186,7 @@ def search():
     Allows users to search the datbase for recipes by
     name, ingredients, cooking time and type of meal."
     """
+    
     query = request.form.get("query")
     recipes = mongo.db.recipes.find({"$text": {"$search": query}})
     return render_template("recipes.html", recipes=recipes)
@@ -191,6 +199,9 @@ def edit_recipe(recipe_id):
     wants to edit and renders the data in the edit form for the user to edit
     and resubmit back to the database collection
     """
+    if "user" not in session:
+        return redirect(url_for("login"))
+    
     username = session["user"]
 
     if request.method == "POST":
