@@ -7,12 +7,12 @@
         <div class="col-12">
             <h1 class="headings heading-margin">{{ username }}'s Cookbook</h1>
         </div>
-        <div class=" col-12 col-md-8">
+        <div class=" col-12 col-md-7">
             <div class="align-center">
                 <h5 id="edit-heading"> <strong> Edit : {{ recipe.recipe_name }}</strong></h5>
             </div>
             <div class="row">
-                <div id="edit-form" class="sm-12 col-lg-6 offset-lg-3">
+                <div id="edit-form" class="sm-12 col-md-10">
                     <!-- Credit: Form from Bootstrap -->
                     <form method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
                         <div class="mb-3">
@@ -67,7 +67,7 @@
             </div>
         </div>
         <!-- List of the users recipes -->
-        <div class=" col-12 col-md-3">
+        <div class=" col-12 col-md-4">
             <div class="align-center">
                 <h5 class="sub-headings">My Cookbook</h5>
             </div>
