@@ -91,7 +91,6 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username")
-                flash("You are now Logged in")
                 return redirect(url_for("profile"))
             else:
                 flash("Incorrect login details, please try again.")
