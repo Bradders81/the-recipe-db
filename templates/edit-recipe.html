@@ -18,13 +18,13 @@
                         <div class="mb-3">
                             <label for="recipe_name" class="edit-form-headings form-label">Name of Recipe</label>
                             <input value="{{ recipe.recipe_name }}" type="text" class="form-control" name="recipe_name"
-                                minlength="1" maxlength="30" pattern="^[a-zA-Z0-9]{1,30}$" id="receipe_name" required>
+                                minlength="1" maxlength="30" id="receipe_name" required>
 
                         </div>
                         <div class="mb-3">
                             <label for="description" class="edit-form-headings form-label">Description</label>
                             <textarea type="text" class="form-control" name="description" minlength="1" maxlength="190"
-                                pattern="^[a-zA-Z0-9]{1,190}$" id="description" required>
+                                 id="description" required>
                                 {{- recipe.description -}}
                         </textarea>
                         </div>
@@ -32,15 +32,15 @@
                             <label for="instructions" class=" edit-form-headings form-label">Cooking
                                 Instructions</label>
                             <textarea type="text" class="form-control" name="instructions" minlength="1"
-                                maxlength="2000" pattern="^[a-zA-Z0-9]{1,2000}$" minlength="1" maxlength="2000"
-                                pattern="^[a-zA-Z0-9]{1,300}$" id="instructions" required>
+                                maxlength="2000" minlength="1" maxlength="2000"
+                                 id="instructions" required>
                                 {{- recipe.instructions-}}
                             </textarea>
                         </div>
                         <div class="mb-3">
                             <label for="ingredients" class="edit-form-headings form-label">Ingredients</label>
                             <textarea type="text" class="form-control" name="ingredients" minlength="1" maxlength="300"
-                                pattern="^[a-zA-Z0-9]{1,3}$" id="cooking-time" id="ingredients"
+                                 id="cooking-time" id="ingredients"
                                 placeholder="Please list each ingredient on a separate line" required>
                                 {{- recipe.ingredients-}}
                             </textarea>
@@ -49,7 +49,7 @@
                             <label for="cooking-time" class="edit-form-headings form-label">Prep and Cooking
                                 Time</label>
                             <input value="{{ recipe.cooking_time }}" type="text" class="form-control"
-                                name="cooking_time" minlength="1" maxlength="3" pattern="^[a-zA-Z0-9]{1,3}$"
+                                name="cooking_time" minlength="1" maxlength="3" 
                                 id="cooking-time" id="cooking-time" required>
                         </div>
                         <div class="form-group">

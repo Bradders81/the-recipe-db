@@ -137,6 +137,7 @@ def profile():
             "ingredients": request.form.get("ingredients"),
             "cooking_time": request.form.get("cooking_time"),
             "type": request.form.get("type"),
+            "image": request.form.get("image"),
             "created_by": username
         }
         mongo.db.recipes.insert_one(new_recipe)

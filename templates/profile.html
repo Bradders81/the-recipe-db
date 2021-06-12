@@ -18,29 +18,33 @@
                         <div class="mb-3">
                             <label for="recipe_name" class="sub-headings form-label">Name of Recipe</label>
                             <input type="text" class="form-control" name="recipe_name" minlength="1"maxlength="30"
-                                pattern="^[a-zA-Z0-9]{1,30}$" id="receipe_name" required>
+                                 id="receipe_name" required>
                         </div>
                         <div class="mb-3">
                             <label for="description" class="sub-headings form-label">Description</label>
                             <textarea type="text" class="form-control" name="description" minlength="1" maxlength="190"
-                                pattern="^[a-zA-Z0-9]{1,190}$" id="description" required></textarea>
+                                id="description" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="instructions" class=" sub-headings form-label">Cooking Instructions</label>
                             <textarea type="text" class="form-control" name="instructions" minlength="1" maxlength="2000"
-                            pattern="^[a-zA-Z0-9]{1,2000}$"id="instructions"
+                            id="instructions"
                                 required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="ingredients" class="sub-headings form-label">Ingredients</label>
                             <textarea type="text" class="form-control" name="ingredients" minlength="1" maxlength="300"
-                            pattern="^[a-zA-Z0-9]{1,300}$" id="ingredients"
+                             id="ingredients"
                                 placeholder="Please list each ingredient on a separate line" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="cooking-time" class="sub-headings form-label">Prep and Cooking Time</label>
                             <input type="text" class="form-control" name="cooking_time" minlength="1" maxlength="3"
-                            pattern="^[a-zA-Z0-9]{1,3}$" id="cooking-time" required>
+                            id="cooking-time" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="sub-headings form-label"></label>Picture</label>
+                            <input type="text" class="form-control" placeholder="Provide link (url) to image" name="image" minlength="1" maxlength="2000" id="image">
                         </div>
                         <div class="form-group">
                             <label class="sub-headings" for="type">Type of Meal</label>
