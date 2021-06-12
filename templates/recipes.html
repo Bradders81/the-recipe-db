@@ -3,18 +3,33 @@
 
 {% block content %}
 
-<h1 class="headings heading-margin"> Recipes</h1>
+<h1 class="headings heading-margin">Recipes</h1>
 
-<div id="cards-layout" class="row">
+<div col="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-5">
+            <form action="{{ url_for('search') }}" method="POST">
+                <div class="mb-3">
+                    <label for="query" class="form-label">Search Recipes</label>
+                    <input type="text" name="query" class="form-control" id="query" minlength="2" required>
+                </div>
+                <button type="submit" class="btn btn-warning">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="row align-center">
     {% for recipe in recipes %}
-    <div class="col-12 col-md-4 align-center ">
+    <div class="col-12 col-md-3 cards-layout">
         <!-- Credit: Card from Bootstrap and then customised -->
-        <a id="cards" href="/profile/{{ recipe._id }}">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
+        <a class="cards" href="/profile/{{ recipe._id }}">
+            <div class="card" style="width: 300px;">
+                <img class="card-image" src="{{ recipe.image }}" class="card-img-top recipe-image"
+                    alt="{{ recipe.image_alt }}">
+                <div class="cad-body">
                     <h5 class="card-title"> {{ recipe.recipe_name}}</h5>
-                    <p class="card-text"> {{ recipe.description}}</p>
                     <h6>By: {{ recipe.created_by }}</h6>
                 </div>
             </div>

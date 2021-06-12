@@ -138,6 +138,7 @@ def profile():
             "cooking_time": request.form.get("cooking_time"),
             "type": request.form.get("type"),
             "image": request.form.get("image"),
+            "image-alt": request.form.get("image-alt"),
             "created_by": username
         }
         mongo.db.recipes.insert_one(new_recipe)
@@ -172,6 +173,17 @@ def recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    """
+    Allows users to search the datbase for recipes by
+    name, ingredients, cooking time and type of meal."
+    """
+    query = request.form.get("query")
+    recipes = mongo.db.recipes.find({"$text": {"$search": query}})
+    return render_template("recipes.html", recipes=recipes)
+
+
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     """
@@ -189,6 +201,8 @@ def edit_recipe(recipe_id):
             "ingredients": request.form.get("ingredients"),
             "cooking_time": request.form.get("cooking_time"),
             "type": request.form.get("type"),
+            "image": request.form.get("image"),
+            "image_alt": request.form.get("image_alt"),
             "created_by": username
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, update_recipe)
